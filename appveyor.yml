@@ -4,20 +4,20 @@ enviorment:
   # node.js
   -nodejs_version: "14"
 
-  # Install scripts. (runs after repo cloning)
-  install:
-    #Get the latest stabel version of Node.js or io.js
-    -ps: Install-Product node $env:nodejs_version
-    # install modules
-    -npm install
+# Install scripts. (runs after repo cloning)
+install:
+  #Get the latest stabel version of Node.js or io.js
+  -ps: Install-Product node $env:nodejs_version
+  # install modules
+  -npm install
 
-    #Post-install tesst scripts.
-    test_script:
-      # Output usefull info for debugging.
-      - node --version
-      - npm --version
-      # run tests
-      - npm test
+# Post-install test scripts.
+test_script:
+  # Output usefull info for debugging.
+  - node --version
+  - npm --version
+  # run tests
+  - npm test
 
-      #Dont actually build.
-      build: off
+#Dont actually build.
+build: off
